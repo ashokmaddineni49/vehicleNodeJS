@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const register = require("./app/controller/register");
 const vehicle_subtype = require("./app/controller/vehicle_subtype");
+const user = require("./app/controller/user");
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: true })); /* bodyParser.urlencoded() is d
 // });
 
 app.use("/register",register);
+app.use("/users", user);
 app.use("/vehicle", vehicle_subtype);
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
